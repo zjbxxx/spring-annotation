@@ -7,11 +7,13 @@ public class Person {
     private Integer age;
 
     public Person(String name, Integer age) {
+        System.out.println("person有参构造 ............");
         this.name = name;
         this.age = age;
     }
 
     public Person() {
+        System.out.println("person无参构造 ............");
     }
 
     public String getName() {
