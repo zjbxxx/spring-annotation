@@ -1,5 +1,6 @@
 package com.zhujianbiao;
 
+import com.zhujianbiao.lifecycle.LifecycleConfigration;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -83,6 +84,16 @@ public class IOCTest {
         // String FACTORY_BEAN_PREFIX = "&";  BeanFactory接口中有此常量，所以想要获取工厂bean本身对象的话，只需要加上&前缀即可
 
         System.out.println(applicationContext.getBean("&colorFactoryBean"));
+    }
+
+
+
+    @Test
+    public void testLifeCycle(){
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(LifecycleConfigration.class);
+        Object car = context.getBean("car");
+        System.out.println(car);
+        context.close();
     }
 
 }
