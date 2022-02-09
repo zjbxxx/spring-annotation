@@ -2,9 +2,12 @@ package com.zhujianbiao.lifecycle;
 
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
+
+@ComponentScan("com.zhujianbiao.lifecycle")
 @Configuration
 public class LifecycleConfigration {
 
@@ -15,7 +18,7 @@ public class LifecycleConfigration {
      *
      * @return
      */
-    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+//    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
     @Bean(initMethod = "init",destroyMethod = "destroy")
     public Car car(){
         return new Car();
